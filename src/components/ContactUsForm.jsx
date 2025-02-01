@@ -167,7 +167,7 @@ const ContactUsForm = () => {
       return;
     }
     const req = await contactUsPost({ name, email, message });
-    toast.success("Thank's We Will Contact You", 3000);
+    if (req) toast.success("Thank's We Will Contact You", 3000);
 
     setName("");
     setEmail("");
