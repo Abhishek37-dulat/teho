@@ -162,17 +162,15 @@ const SplitAtomicBox = () => {
 
         <ViewAllDetails>
           <MainViewAllDetails onClick={() => handleNavigate(0)}>
-            <MBox1
+            {/* <MBox1
               style={{
                 backgroundColor: color.color,
               }}
             >
               <MBox1P>2</MBox1P>
-            </MBox1>
+            </MBox1> */}
             <MBox2>
-              <ViewAllDetailsText>
-                View All {lists[color.itemNumber]}
-              </ViewAllDetailsText>
+              <ViewAllDetailsText>View All Centers</ViewAllDetailsText>
               <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
             </MBox2>
           </MainViewAllDetails>
@@ -194,17 +192,15 @@ const SplitAtomicBox = () => {
 
         <ViewAllDetails>
           <MainViewAllDetails onClick={() => handleNavigate(1)}>
-            <MBox1
+            {/* <MBox1
               style={{
                 backgroundColor: "#0074c8",
               }}
             >
               <MBox1P>2</MBox1P>
-            </MBox1>
+            </MBox1> */}
             <MBox2>
-              <ViewAllDetailsText>
-                View All {lists[color.itemNumber]}
-              </ViewAllDetailsText>
+              <ViewAllDetailsText>View All Events</ViewAllDetailsText>
               <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
             </MBox2>
           </MainViewAllDetails>
@@ -227,17 +223,15 @@ const SplitAtomicBox = () => {
 
         <ViewAllDetails>
           <MainViewAllDetails onClick={() => handleNavigate(2)}>
-            <MBox1
+            {/* <MBox1
               style={{
                 backgroundColor: "#009f83",
               }}
             >
               <MBox1P>3</MBox1P>
-            </MBox1>
+            </MBox1> */}
             <MBox2>
-              <ViewAllDetailsText>
-                View All {lists[color.itemNumber]}
-              </ViewAllDetailsText>
+              <ViewAllDetailsText>View All Tournaments</ViewAllDetailsText>
               <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
             </MBox2>
           </MainViewAllDetails>
