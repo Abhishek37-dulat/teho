@@ -23,6 +23,14 @@ const BoxAtom = styled(Box)(({ theme }) => ({
   borderRadius: "10px",
   marginLeft: "20px",
   marginRight: "20px",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+  "&:active": {
+    transform: "scale(1)",
+  },
   // boxShadow:"0px 0px -5p rgba(255, 255, 255, 0.5)"
 }));
 const MainBox = styled(Box)(({ theme }) => ({
@@ -68,14 +76,6 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
   marginLeft: "-20px",
   marginRight: "-20px",
   marginTop: "15px",
-  cursor: "pointer",
-  transition: "all 0.3s ease",
-  "&:hover": {
-    transform: "scale(1.05)",
-  },
-  "&:active": {
-    transform: "scale(1)",
-  },
 }));
 
 const MainViewAllDetails = styled(Box)(({ theme }) => ({
@@ -146,7 +146,7 @@ const SplitAtomicBox = () => {
   };
   return (
     <ItemBox>
-      <BoxAtom>
+      <BoxAtom onClick={() => handleNavigate(0)}>
         <MainBox>
           <IconBoxes>
             <IconBox1
@@ -161,7 +161,7 @@ const SplitAtomicBox = () => {
         </MainBox>
 
         <ViewAllDetails>
-          <MainViewAllDetails onClick={() => handleNavigate(0)}>
+          <MainViewAllDetails>
             {/* <MBox1
               style={{
                 backgroundColor: color.color,
@@ -176,7 +176,7 @@ const SplitAtomicBox = () => {
           </MainViewAllDetails>
         </ViewAllDetails>
       </BoxAtom>
-      <BoxAtom>
+      <BoxAtom onClick={() => handleNavigate(1)}>
         <MainBox>
           <IconBoxes>
             <IconBox1
@@ -191,7 +191,7 @@ const SplitAtomicBox = () => {
         </MainBox>
 
         <ViewAllDetails>
-          <MainViewAllDetails onClick={() => handleNavigate(1)}>
+          <MainViewAllDetails>
             {/* <MBox1
               style={{
                 backgroundColor: "#0074c8",
@@ -206,7 +206,7 @@ const SplitAtomicBox = () => {
           </MainViewAllDetails>
         </ViewAllDetails>
       </BoxAtom>
-      <BoxAtom>
+      <BoxAtom onClick={() => handleNavigate(2)}>
         <MainBox>
           <IconBoxes>
             <IconBox1
@@ -222,7 +222,7 @@ const SplitAtomicBox = () => {
         </MainBox>
 
         <ViewAllDetails>
-          <MainViewAllDetails onClick={() => handleNavigate(2)}>
+          <MainViewAllDetails>
             {/* <MBox1
               style={{
                 backgroundColor: "#009f83",
