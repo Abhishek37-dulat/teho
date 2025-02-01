@@ -61,6 +61,7 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
   marginTop: "40px",
   marginLeft: "-10px",
   marginRight: "-10px",
+
   "&>div:nth-of-type(1)": {
     display: "flex",
     justifyContent: "center",
@@ -100,7 +101,7 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
 }));
 
 const ImageBox = styled(Box)(({ theme }) => ({
-  border: "1px solid black",
+  // border: "1px solid black",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -110,6 +111,12 @@ const ImageBox = styled(Box)(({ theme }) => ({
   "&>img": {
     width: "100%",
     height: "300px",
+    [theme.breakpoints.up("sm")]: {
+      width: "auto",
+      height: "300px",
+      boxShadow: "0px 0px rgba(255,255,255,0.7)",
+      borderRadius: "5px",
+    },
   },
 }));
 
@@ -119,6 +126,9 @@ const DetailsBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   marginTop: "20px",
+  [theme.breakpoints.up("sm")]: {
+    padding: "0px 100px",
+  },
   "&>p": {
     color: "#fff",
     textAlign: "center",
@@ -145,6 +155,9 @@ const DetailsBox3 = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "flex-start",
   marginTop: "20px",
+  [theme.breakpoints.up("sm")]: {
+    padding: "0px 100px",
+  },
   "&>div": {
     display: "flex",
     justifyContent: "center",

@@ -113,6 +113,12 @@ const ImageBox = styled(Box)(({ theme }) => ({
   "&>img": {
     width: "100%",
     height: "300px",
+    [theme.breakpoints.up("sm")]: {
+      width: "auto",
+      height: "300px",
+      boxShadow: "0px 0px rgba(255,255,255,0.7)",
+      borderRadius: "5px",
+    },
   },
 }));
 
@@ -150,6 +156,9 @@ const DetailsBox3 = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "flex-start",
   marginTop: "20px",
+  [theme.breakpoints.up("sm")]: {
+    padding: "0px 100px",
+  },
   "&>div": {
     display: "flex",
     justifyContent: "space-between",
@@ -183,10 +192,15 @@ const DetailsBox4 = styled(Box)(({ theme }) => ({
   width: "100%",
   marginTop: "20px",
   marginBottom: "20px",
+
   "&>button": {
     // background: "linear-gradient(to top, #0074c8, #0074c8)",
     width: "100%",
     padding: "10px 10px",
+    [theme.breakpoints.up("sm")]: {
+      width: "70%",
+      padding: "10px 100px",
+    },
     "&>p": {
       color: "#fff",
     },
