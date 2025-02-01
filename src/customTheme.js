@@ -4,6 +4,9 @@ const customTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
+      s2: 200,
+      s3: 300,
+      s4: 400,
       ssm: 500,
       sm: 600,
       msm: 700,

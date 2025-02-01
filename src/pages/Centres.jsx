@@ -14,9 +14,12 @@ const MainBox = styled(Box)(({ theme }) => ({
 const Box1 = styled(Box)(({ theme }) => ({
   position: "relative",
   border: "1px solid black",
-  minHeight: "150vh",
+  // minHeight: "180vh",
   //   overflow: "hidden",
   backgroundColor: "transparent",
+  [theme.breakpoints.up("s4")]: {
+    minHeight: "200vh",
+  },
 }));
 
 const ImageBackground = styled("img")({
@@ -24,7 +27,7 @@ const ImageBackground = styled("img")({
   top: 0,
   left: 0,
   width: "100%",
-  minHeight: "150%",
+  height: "100%",
   objectFit: "cover",
   zIndex: 0,
   opacity: "20%",
@@ -32,9 +35,12 @@ const ImageBackground = styled("img")({
 const Box2 = styled(Box)(({ theme }) => ({
   border: "1px solid black",
   position: "relative",
-  marginTop: "-150vh",
+
   zIndex: "10",
   overflow: "scroll",
+  [theme.breakpoints.up("s4")]: {
+    marginTop: "-200vh",
+  },
 }));
 
 const Overlay = styled(Box)({

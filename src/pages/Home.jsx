@@ -52,9 +52,15 @@ const Home = () => {
 
   const handleScroll = () => {
     if (videoRef.current && !isPlaying) {
-      videoRef.current.play();
       videoRef.current.muted = false;
-      setIsPlaying(true);
+      videoRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch((error) => {
+          console.log("Video play failed:", error);
+        });
     }
   };
 

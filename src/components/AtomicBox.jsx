@@ -1,14 +1,14 @@
 import { Box, styled, Typography } from "@mui/material";
 import React, { useState } from "react";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import BookOnlineIcon from "@mui/icons-material/BookOnline";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import { useNavigate } from "react-router-dom";
+import home from "../assets/akar-icons_desktop-device.svg";
+import ti from "../assets/tickets--hobby-ticket-event-entertainment-stub-theater-entertainment-culture.png";
+import tou from "../assets/esports--entertainment-gaming-esports.svg";
 
 const BoxAtom = styled(Box)(({ theme }) => ({
   position: "sticky",
-  top: "0px",
+  top: "20px",
   height: "141px",
   marginTop: "-161px",
   backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -113,6 +113,9 @@ const AtomicBox = () => {
 
   const handleEventChange = (color, itemNumber) => {
     setColor({ color, itemNumber });
+  };
+  const handleNavigate = (itemNumber) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     if (itemNumber === 0) {
       navigate("/centres");
     }
@@ -133,7 +136,7 @@ const AtomicBox = () => {
             }}
             onClick={() => handleEventChange("#A60019", 0)}
           >
-            <HomeRoundedIcon sx={{ color: "white" }} />
+            <img src={home} alt="images" />
           </IconBox1>
           <Box1Text>Centres</Box1Text>
         </IconBoxes>
@@ -144,7 +147,7 @@ const AtomicBox = () => {
             }}
             onClick={() => handleEventChange("#0074c8", 1)}
           >
-            <BookOnlineIcon sx={{ color: "white" }} />
+            <img src={ti} alt="images" />
           </IconBox1>
           <Box1Text>Events</Box1Text>
         </IconBoxes>
@@ -155,13 +158,13 @@ const AtomicBox = () => {
             }}
             onClick={() => handleEventChange("#009f83", 2)}
           >
-            <SportsEsportsIcon sx={{ color: "white" }} />
+            <img src={tou} alt="images" />
           </IconBox1>
           <Box1Text>Tournaments</Box1Text>
         </IconBoxes>
       </MainBox>
       <ViewAllDetails>
-        <MainViewAllDetails>
+        <MainViewAllDetails onClick={() => handleNavigate(color.itemNumber)}>
           <MBox1
             style={{
               backgroundColor: color.color,
