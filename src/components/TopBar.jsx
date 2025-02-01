@@ -7,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logoIcon from "../assets/teho-white 1.png";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material";
+import lo from "../assets/Vector (Stroke).svg";
 
 const MainBox = styled(Box)(({ theme }) => ({
   flexGrow: 1,
@@ -36,7 +37,12 @@ export default function ButtonAppBar({ toggleDrawer }) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
             onClick={() => navigate("/")}
           >
             <img src={logoIcon} alt="logo" style={{ width: "88px" }} />
@@ -52,9 +58,11 @@ export default function ButtonAppBar({ toggleDrawer }) {
               padding: "4px 8px",
               borderRadius: "4px",
               boxShadow: "0px 0px rgba(0,0,0,0.5)",
+              cursor: "pointer",
             }}
+            onClick={toggleDrawer(true)}
           >
-            <MenuIcon onClick={toggleDrawer(true)} />
+            <img src={lo} alt="logo" style={{ width: "24px" }} />
           </Box>
         </Toolbar>
       </AppBar>
