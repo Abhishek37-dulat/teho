@@ -13,9 +13,16 @@ const Box3 = styled(Box)(({ theme }) => ({
   //   overflow: "hidden",
   backgroundColor: "black",
   paddingBottom: "250px",
+  [theme.breakpoints.up("s8")]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    backgroundColor: "linear-gradient(to top, #f8990b, #000)",
+  },
 }));
 
-const ImageBackground = styled("img")({
+const ImageBackground = styled("img")(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -24,19 +31,33 @@ const ImageBackground = styled("img")({
   objectFit: "cover",
   zIndex: 1,
   opacity: "10%",
-});
+  [theme.breakpoints.up("s8")]: {
+    display: "none",
+  },
+}));
 
 const TextBox = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
   display: "flex",
   flexDirection: "column",
   padding: "60px 90px 60px 20px",
+  [theme.breakpoints.up("s8")]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const HeadTitle = styled(Typography)(({ theme }) => ({
   //   border: "1px solid black",
   marginTop: "100px",
   display: "flex",
+  [theme.breakpoints.up("s8")]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
   "&>p:nth-of-type(1)": {
     color: "white",
     fontWeight: "bold",
@@ -50,7 +71,39 @@ const HeadTitle = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const ResBox = styled(Box)(({ theme }) => ({
+  //   border: "1px solid black",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  "&>div": {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-end",
+  },
+}));
+
 const ProductDetails = styled(Box)(({ theme }) => ({
+  //   border: "1px solid black",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  "&>p:nth-of-type(1)": {
+    color: "white",
+    fontWeight: "bold",
+    marginRight: "10px",
+    fontSize: "24px",
+  },
+  "&>p:nth-of-type(2)": {
+    color: "white",
+    fontWeight: "200",
+    fontSize: "14px",
+  },
+}));
+
+const ProductDetailsRes = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
   display: "flex",
   flexDirection: "column",
@@ -148,6 +201,26 @@ const ProductDetails3 = styled(Box)(({ theme }) => ({
   },
 }));
 
+const ProductDetails3Res = styled(Box)(({ theme }) => ({
+  //   border: "1px solid black",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "40px",
+  "&>p:nth-of-type(1)": {
+    color: "white",
+    fontWeight: "500",
+    marginRight: "10px",
+    fontSize: "20px",
+  },
+  "&>p:nth-of-type(2)": {
+    color: "white",
+    fontWeight: "200",
+    fontSize: "14px",
+  },
+}));
+
 const ButtonBox4 = styled(Button)(({ theme }) => ({
   //   border: "1px solid black",
   display: "flex",
@@ -158,6 +231,22 @@ const ButtonBox4 = styled(Button)(({ theme }) => ({
   marginTop: "20px",
   width: "calc(100% - 40px)",
   margin: "20px",
+  "&>p": {
+    color: "white",
+    textTransform: "capitalize",
+  },
+}));
+
+const ButtonBox4Res = styled(Button)(({ theme }) => ({
+  //   border: "1px solid black",
+  display: "flex",
+  backgroundColor: "#1a1a1a",
+  zIndex: 2,
+  padding: "10px 40px",
+  boxShadow: "0px 0px 4px rgba(255,255,255,0.7)",
+  marginTop: "80px",
+  // width: "calc(100% - 40px)",
+  // margin: "20px",
   "&>p": {
     color: "white",
     textTransform: "capitalize",
@@ -207,7 +296,7 @@ const MBox1P = styled(Typography)(({ theme }) => ({
   padding: "2px 2px",
 }));
 
-const OurProduct = () => {
+const OurProduct = ({ isDesktop }) => {
   return (
     <Box3>
       <ImageBackground src={Box2Image} alt="Background Image" />
@@ -219,50 +308,88 @@ const OurProduct = () => {
           <Typography>PRODUCTS</Typography>
         </HeadTitle>
       </TextBox>
-      <ProductDetails>
-        <Image1 src={P1} alt="p1" />
-        <Typography>Racing Simulator - 2 dof</Typography>
-        <Typography>with integrated leaderboard</Typography>
-        <ButtonBox>
-          <Typography>Know More</Typography>
-          <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
-        </ButtonBox>
-      </ProductDetails>
-      <ProductDetails>
-        {/* <Image1 src={P1} alt="p1" />
-        <Typography>Racing Simulator - 2 dof</Typography>
-        <Typography>with integrated leaderboard</Typography> */}
-        <ButtonBox2>
-          <Typography>Know More</Typography>
-          <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
-        </ButtonBox2>
-      </ProductDetails>
-      <ProductDetails2>
-        <Typography>Leaderboard</Typography>
-        <ButtonBox3>
-          <Typography>Know More</Typography>
-          <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
-        </ButtonBox3>
-      </ProductDetails2>
+      {!isDesktop && (
+        <ProductDetails>
+          <Image1 src={P1} alt="p1" />
+          <Typography>Racing Simulator - 2 dof</Typography>
+          <Typography>with integrated leaderboard</Typography>
+          <ButtonBox>
+            <Typography>Know More</Typography>
+            <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+          </ButtonBox>
+        </ProductDetails>
+      )}
 
-      <ProductDetails3>
-        <Image2 src={P2} alt="p2" />
-        <UpComing>
-          <Typography>coming soon</Typography>
-        </UpComing>
-        <Typography>Racing Simulator - 4 dof</Typography>
-        <ButtonBox4>
-          <MBox1
-            style={{
-              backgroundColor: "#f8990b",
-            }}
-          >
-            <MBox1P>5</MBox1P>
-          </MBox1>
-          <Typography>View All Products</Typography>
-          <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
-        </ButtonBox4>
-      </ProductDetails3>
+      {!isDesktop && (
+        <ProductDetails>
+          <ButtonBox2>
+            <Typography>Know More</Typography>
+            <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+          </ButtonBox2>
+        </ProductDetails>
+      )}
+      {!isDesktop && (
+        <ProductDetails2>
+          <Typography>Leaderboard</Typography>
+          <ButtonBox3>
+            <Typography>Know More</Typography>
+            <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+          </ButtonBox3>
+        </ProductDetails2>
+      )}
+      {isDesktop && (
+        <ResBox>
+          <Box>
+            <ProductDetailsRes>
+              <Image1 src={P1} alt="p1" />
+              <Typography>Racing Simulator - 2 dof</Typography>
+              <Typography>with integrated leaderboard</Typography>
+              <ButtonBox>
+                <Typography>Know More</Typography>
+                <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+              </ButtonBox>
+            </ProductDetailsRes>
+            <ProductDetails3Res>
+              <Image2 src={P2} alt="p2" />
+              <Typography>Racing Simulator - 4 dof</Typography>
+              <ButtonBox>
+                <Typography>coming soon</Typography>
+              </ButtonBox>
+            </ProductDetails3Res>
+          </Box>
+          <ButtonBox4Res>
+            <MBox1
+              style={{
+                backgroundColor: "#f8990b",
+              }}
+            >
+              <MBox1P>5</MBox1P>
+            </MBox1>
+            <Typography>View All Products</Typography>
+            <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+          </ButtonBox4Res>
+        </ResBox>
+      )}
+      {!isDesktop && (
+        <ProductDetails3>
+          <Image2 src={P2} alt="p2" />
+          <UpComing>
+            <Typography>coming soon</Typography>
+          </UpComing>
+          <Typography>Racing Simulator - 4 dof</Typography>
+          <ButtonBox4>
+            <MBox1
+              style={{
+                backgroundColor: "#f8990b",
+              }}
+            >
+              <MBox1P>5</MBox1P>
+            </MBox1>
+            <Typography>View All Products</Typography>
+            <KeyboardArrowRightRoundedIcon style={{ color: "white" }} />
+          </ButtonBox4>
+        </ProductDetails3>
+      )}
     </Box3>
   );
 };

@@ -1,6 +1,7 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import React from "react";
 import Box2Image from "../assets/fe2301a10103d27433cbf0b8c65c088c.png";
+import Box1Image from "../assets/Div [absolute].svg";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 
 const Box2 = styled(Box)(({ theme }) => ({
@@ -10,6 +11,12 @@ const Box2 = styled(Box)(({ theme }) => ({
   //   overflow: "hidden",
   marginTop: "0px",
   backgroundColor: "black",
+  [theme.breakpoints.up("s8")]: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
 }));
 
 const ImageBackground = styled("img")({
@@ -28,6 +35,10 @@ const TextBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   padding: "60px 90px 60px 20px",
+  [theme.breakpoints.up("s8")]: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const HeadTitle = styled(Typography)(({ theme }) => ({
@@ -50,6 +61,9 @@ const HeadTitle = styled(Typography)(({ theme }) => ({
 const HeadDetails = styled(Typography)(({ theme }) => ({
   //   border: "1px solid black",
   marginTop: "50px",
+  [theme.breakpoints.up("s8")]: {
+    padding: "0px 100px",
+  },
   "&>p:nth-of-type(1)": {
     color: "white",
   },
@@ -67,16 +81,22 @@ const ButtonBox = styled(Button)(({ theme }) => ({
   padding: "10px 40px",
   boxShadow: "0px 0px 4px rgba(255,255,255,0.7)",
   marginLeft: "20px",
+  [theme.breakpoints.up("s8")]: {
+    marginBottom: "20px",
+  },
   "&>p": {
     color: "white",
     textTransform: "capitalize",
   },
 }));
 
-const WhyBox = () => {
+const WhyBox = ({ isDesktop }) => {
   return (
     <Box2>
-      <ImageBackground src={Box2Image} alt="Background Image" />
+      <ImageBackground
+        src={isDesktop ? Box1Image : Box2Image}
+        alt="Background Image"
+      />
       <TextBox>
         <HeadTitle>
           <Typography>WHO</Typography>

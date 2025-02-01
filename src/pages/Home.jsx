@@ -83,8 +83,8 @@ const Home = () => {
         <TopBar toggleDrawer={toggleDrawer} />
       </Box1>
       {isDesktop ? <SplitAtomicBox /> : <AtomicBox />}
-      <WhyBox />
-      <OurProduct />
+      <WhyBox isDesktop={isDesktop} />
+      <OurProduct isDesktop={isDesktop} />
       <ContactUsForm />
       <FooterBox />
       {/* <Box3></Box3> */}

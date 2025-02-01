@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import TopBar from "../components/TopBar";
 import DrawerBox from "../components/DrawerBox";
@@ -57,7 +57,8 @@ const Centres = () => {
   const [state, setState] = useState({
     right: false,
   });
-
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
@@ -79,7 +80,7 @@ const Centres = () => {
         </Box1>
         <Box2>
           <TopBar toggleDrawer={toggleDrawer} />
-          <CentresBox />
+          <CentresBox isDesktop={isDesktop} />
         </Box2>
         <FooterBox />
       </MainBox>

@@ -16,7 +16,7 @@ const ContactUsBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
 }));
 
-const ImageBackground = styled("img")({
+const ImageBackground = styled("img")(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -25,7 +25,10 @@ const ImageBackground = styled("img")({
   objectFit: "cover",
   zIndex: 1,
   opacity: "40%",
-});
+  [theme.breakpoints.up("s8")]: {
+    display: "none",
+  },
+}));
 
 const FormBox = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -40,6 +43,9 @@ const FormBox = styled(Box)(({ theme }) => ({
   boxShadow: "0px 0px 5px rgba(0,0,0,0.5)",
   padding: "25px 0px",
   marginBottom: "100px",
+  [theme.breakpoints.up("s8")]: {
+    width: "calc(60% - 40px)",
+  },
   "&>form": {
     display: "flex",
     flexDirection: "column",
