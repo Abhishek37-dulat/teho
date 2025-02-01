@@ -152,6 +152,14 @@ const Box3 = styled(Box)(({ theme }) => ({
     borderRadius: "100%",
     backgroundColor: "0px 0px 4px rgba(0,0,0,1)",
     margin: "2px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+    "&:active": {
+      transform: "scale(1)",
+    },
     "&>img": {},
     [theme.breakpoints.up("s8")]: {
       margin: "0px",

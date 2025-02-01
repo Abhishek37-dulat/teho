@@ -68,6 +68,14 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
   marginLeft: "-20px",
   marginRight: "-20px",
   marginTop: "15px",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+  "&:active": {
+    transform: "scale(1)",
+  },
 }));
 
 const MainViewAllDetails = styled(Box)(({ theme }) => ({
@@ -218,13 +226,13 @@ const SplitAtomicBox = () => {
         </MainBox>
 
         <ViewAllDetails>
-          <MainViewAllDetails onClick={() => handleNavigate(1)}>
+          <MainViewAllDetails onClick={() => handleNavigate(2)}>
             <MBox1
               style={{
                 backgroundColor: "#009f83",
               }}
             >
-              <MBox1P>2</MBox1P>
+              <MBox1P>3</MBox1P>
             </MBox1>
             <MBox2>
               <ViewAllDetailsText>

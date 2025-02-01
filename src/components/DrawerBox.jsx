@@ -43,8 +43,16 @@ const B2Item1 = styled(Box)(({ theme }) => ({
   "&>p:nth-of-type(1)": {
     color: "white",
     fontSize: "24px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+
     "&:hover": {
       color: "#f8990b",
+      transform: "scale(1.05)",
+    },
+
+    "&:active": {
+      transform: "scale(1)",
     },
   },
 }));
@@ -63,12 +71,19 @@ const B2Item2 = styled(Box)(({ theme }) => ({
     alignItems: "center",
     marginLeft: "100px",
     "&:hover": {
+      transform: "scale(1.05)",
       "&>p:nth-of-type(1)": {
         color: "#f8990b",
       },
       "&>svg": {
         color: "#f8990b",
       },
+    },
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+
+    "&:active": {
+      transform: "scale(1)",
     },
     "&>p:nth-of-type(1)": {
       color: "white",
@@ -106,14 +121,21 @@ const SubInnerBox = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   transition: "background-color 0.3s ease-in-out",
+  transition: "all 0.3s ease",
   marginTop: "10px",
   "&:hover": {
+    transform: "scale(1.05)",
     "&>p:nth-of-type(1)": {
       color: "#f8990b",
     },
     "&>svg": {
       color: "#676665",
     },
+  },
+  cursor: "pointer",
+
+  "&:active": {
+    transform: "scale(1)",
   },
   "&>p:nth-of-type(1)": {
     color: "white",
