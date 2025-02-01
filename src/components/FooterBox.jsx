@@ -29,6 +29,20 @@ const MainBox = styled(Box)(({ theme }) => ({
     padding: "0px 50px",
     width: "calc(100% - 100px)",
   },
+  [theme.breakpoints.up("lmd")]: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    padding: "0px 10%",
+    width: "80%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    padding: "0px 25%",
+    width: "50%",
+  },
 }));
 
 const ImageBackground = styled("img")(({ theme }) => ({

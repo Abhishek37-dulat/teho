@@ -40,6 +40,14 @@ const IconBoxes = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  cursor: "pointer",
+  transition: "all 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+  "&:active": {
+    transform: "scale(1)",
+  },
   [theme.breakpoints.up("s8")]: {
     width: "190px",
     justifyContent: "space-between",
@@ -94,6 +102,16 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
     marginLeft: "10%",
     marginRight: "10%",
   },
+  [theme.breakpoints.up("lmd")]: {
+    width: "70%",
+    marginLeft: "15%",
+    marginRight: "15%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "50%",
+    marginLeft: "25%",
+    marginRight: "25%",
+  },
   "&>div:nth-of-type(1)": {
     display: "flex",
     justifyContent: "center",
@@ -103,6 +121,14 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
     color: "#fff",
     width: "60px",
     height: "60px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+    "&:active": {
+      transform: "scale(1)",
+    },
     "&>svg": {
       fontSize: "34px",
     },
@@ -126,6 +152,14 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
     color: "#fff",
     width: "60px",
     height: "60px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+    "&:active": {
+      transform: "scale(1)",
+    },
     "&>svg": {
       fontSize: "34px",
     },
@@ -236,6 +270,14 @@ const DetailsBox4 = styled(Box)(({ theme }) => ({
     // background: "linear-gradient(to top, #0074c8, #0074c8)",
     width: "100%",
     padding: "10px 10px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+    "&:active": {
+      transform: "scale(1)",
+    },
     [theme.breakpoints.up("sm")]: {
       width: "70%",
       padding: "10px 100px",
@@ -346,13 +388,12 @@ const EventsBox = ({ isDesktop }) => {
 
       {isDesktop && (
         <MainBox>
-          <IconBoxes>
+          <IconBoxes onClick={() => navigate("/centres")}>
             <Box>
               <IconBox1
                 style={{
                   backgroundColor: "#A60019",
                 }}
-                onClick={() => navigate("/centres")}
               >
                 {/* <HomeRoundedIcon sx={{ color: "white" }} /> */}
                 <img src={home} alt="images" />
@@ -361,13 +402,12 @@ const EventsBox = ({ isDesktop }) => {
             </Box>
             <img src={tor} alt="images" />
           </IconBoxes>
-          <IconBoxes>
+          <IconBoxes onClick={() => navigate("/events")}>
             <Box>
               <IconBox1
                 style={{
                   backgroundColor: "#0074c8",
                 }}
-                onClick={() => navigate("/events")}
               >
                 {/* <BookOnlineIcon sx={{ color: "white" }} /> */}
                 <img src={ti} alt="images" />
@@ -376,13 +416,12 @@ const EventsBox = ({ isDesktop }) => {
             </Box>
             <img src={tor} alt="images" />
           </IconBoxes>
-          <IconBoxes>
+          <IconBoxes onClick={() => navigate("/tournaments")}>
             <Box>
               <IconBox1
                 style={{
                   backgroundColor: "#009f83",
                 }}
-                onClick={() => navigate("/tournaments")}
               >
                 <img src={tou} alt="images" />
                 {/* <SportsEsportsIcon sx={{ color: "white" }} /> */}

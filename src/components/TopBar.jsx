@@ -13,7 +13,7 @@ const MainBox = styled(Box)(({ theme }) => ({
   margin: 2,
   overflow: "hidden",
   zIndex: 10,
-  width: "100%",
+  width: "98%",
   [theme.breakpoints.up("s8")]: {
     width: "80%",
     marginLeft: "10%",

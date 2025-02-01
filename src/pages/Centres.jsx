@@ -7,13 +7,13 @@ import Box2Image from "../assets/fe2301a10103d27433cbf0b8c65c088c.png";
 import CentresBox from "../components/CentresBox";
 
 const MainBox = styled(Box)(({ theme }) => ({
-  border: "1px solid black",
+  // border: "1px solid black",
   // overflow: "scroll",
 }));
 
 const Box1 = styled(Box)(({ theme }) => ({
   position: "relative",
-  border: "1px solid black",
+  // border: "1px solid black",
   // minHeight: "180vh",
   //   overflow: "hidden",
   backgroundColor: "transparent",
@@ -36,11 +36,11 @@ const ImageBackground = styled("img")(({ theme }) => ({
   },
 }));
 const Box2 = styled(Box)(({ theme }) => ({
-  border: "1px solid black",
+  // border: "1px solid black",
   position: "relative",
 
   zIndex: "10",
-  overflow: "scroll",
+  // overflow: "scroll",
   [theme.breakpoints.up("s4")]: {
     marginTop: "-200vh",
   },
