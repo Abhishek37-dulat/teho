@@ -22,9 +22,16 @@ const MainBox = styled(Box)(({ theme }) => ({
   padding: "20px",
   width: "calc(100% - 40px)",
   //   marginBottom: "280px",
+  [theme.breakpoints.up("s8")]: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    padding: "0px 50px",
+    width: "calc(100% - 100px)",
+  },
 }));
 
-const ImageBackground = styled("img")({
+const ImageBackground = styled("img")(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -33,13 +40,22 @@ const ImageBackground = styled("img")({
   objectFit: "cover",
   zIndex: 1,
   opacity: "40%",
-});
+  [theme.breakpoints.up("s8")]: {
+    display: "none",
+  },
+}));
 const Box1 = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "flex-start",
   zIndex: 2,
+  "&>img": { width: "200px" },
+  [theme.breakpoints.up("s8")]: {
+    "&>img:nth-of-type(1)": {
+      width: "100px",
+    },
+  },
   "&>div": {
     display: "flex",
     justifyContent: "center",
@@ -47,6 +63,21 @@ const Box1 = styled(Box)(({ theme }) => ({
     color: "white",
     marginTop: "20px",
     marginLeft: "10px",
+    "&>img": {
+      width: "24px",
+    },
+    [theme.breakpoints.up("s8")]: {
+      marginLeft: "0px",
+      "&>img": {
+        width: "16px",
+      },
+      "&>svg": {
+        width: "16px",
+      },
+      "&>p": {
+        fontSize: "12px",
+      },
+    },
     "&>p": {
       marginLeft: "5px",
     },
@@ -63,6 +94,11 @@ const Box2 = styled(Box)(({ theme }) => ({
   padding: "20px",
   borderRadius: "10px",
   marginTop: "20px",
+  [theme.breakpoints.up("s8")]: {
+    marginTop: "0px",
+    width: "calc(80% - 40px)",
+    padding: "10px",
+  },
   "&>div": {
     display: "flex",
     flexDirection: "column",
@@ -87,7 +123,13 @@ const Box3 = styled(Box)(({ theme }) => ({
   width: "calc(100% - 40px)",
   padding: "20px",
   marginTop: "20px",
-
+  [theme.breakpoints.up("s8")]: {
+    justifyContent: "center",
+    margin: "0px",
+    paddingTop: "0px",
+    paddingLeft: "0px",
+    marginTop: "20px",
+  },
   "&>div": {
     display: "flex",
     justifyContent: "center",
@@ -97,6 +139,10 @@ const Box3 = styled(Box)(({ theme }) => ({
     backgroundColor: "0px 0px 4px rgba(0,0,0,1)",
     margin: "2px",
     "&>img": {},
+    [theme.breakpoints.up("s8")]: {
+      margin: "0px",
+      paddingTop: "0px",
+    },
   },
 }));
 
@@ -107,12 +153,33 @@ const Box4 = styled(Box)(({ theme }) => ({
   zIndex: 2,
   width: "calc(100% - 40px)",
   padding: "20px",
+  [theme.breakpoints.up("s8")]: {
+    justifyContent: "flex-start",
+    paddingLeft: "0px",
+  },
   "&>p": {
     color: "#fff",
     zIndex: 2,
   },
 }));
-const FooterBox = () => {
+
+const DeskBox = styled(Box)(({ theme }) => ({
+  borderTop: "2px solid #1a1a1a",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  width: "100%",
+  padding: "20px",
+  "&>div": {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    width: "100%",
+  },
+}));
+const FooterBox = ({ isDesktop }) => {
   let itemForHome = ["Who We Are", "Products", "About Us", "Contact Us"];
   let itemForProducts = [
     "Racing Simulator",
@@ -123,56 +190,119 @@ const FooterBox = () => {
   return (
     <MainBox>
       <ImageBackground src={Box2Image} alt="Background Image" />
-      <Box1>
-        <img src={logoIcon} alt="logo" style={{ width: "200px" }} />
-        <Box>
-          <MailOutlineRoundedIcon />
-          <Typography>partner@projectteho.com</Typography>
-        </Box>
-        <Box>
-          <img src={location} alt="logoww" style={{ width: "24px" }} />
-          <Typography>
-            16, Bhuvanappa layout, Tavarekere Main rd, Bengaluru, Karnataka
-            560029
-          </Typography>
-        </Box>
-        <Box>
-          <img src={call} alt="logo" style={{ width: "24px" }} />
-          <Typography>8088221920</Typography>
-        </Box>
-      </Box1>
-      <Box2>
-        <Box>
-          <Typography style={{ color: "#f8990b", fontWeight: "bold" }}>
-            Home
-          </Typography>
-          {itemForHome?.map((data) => (
-            <Typography>{data}</Typography>
-          ))}
-        </Box>
-        <Box>
-          <Typography style={{ color: "#1cb1d9", fontWeight: "bold" }}>
-            Products
-          </Typography>
-          {itemForProducts?.map((data) => (
-            <Typography>{data}</Typography>
-          ))}
-        </Box>
-      </Box2>
-      <Box3>
-        <Box>
-          <img src={insta} alt="insta" style={{ width: "24px" }} />
-        </Box>
-        <Box>
-          <img src={twet} alt="twet" style={{ width: "24px" }} />
-        </Box>
-        <Box>
-          <img src={you} alt="you" style={{ width: "24px" }} />
-        </Box>
-      </Box3>
-      <Box4>
-        <Typography>Project Teho © 2025. All Rights Reserved</Typography>
-      </Box4>
+
+      {!isDesktop && (
+        <>
+          <Box1>
+            <img src={logoIcon} alt="logo" />
+            <Box>
+              <MailOutlineRoundedIcon />
+              <Typography>partner@projectteho.com</Typography>
+            </Box>
+            <Box>
+              <img src={location} alt="logoww" />
+              <Typography>
+                16, Bhuvanappa layout, Tavarekere Main rd, Bengaluru, Karnataka
+                560029
+              </Typography>
+            </Box>
+            <Box>
+              <img src={call} alt="logo" />
+              <Typography>8088221920</Typography>
+            </Box>
+          </Box1>
+          <Box2>
+            <Box>
+              <Typography style={{ color: "#f8990b", fontWeight: "bold" }}>
+                Home
+              </Typography>
+              {itemForHome?.map((data) => (
+                <Typography>{data}</Typography>
+              ))}
+            </Box>
+            <Box>
+              <Typography style={{ color: "#1cb1d9", fontWeight: "bold" }}>
+                Products
+              </Typography>
+              {itemForProducts?.map((data) => (
+                <Typography>{data}</Typography>
+              ))}
+            </Box>
+          </Box2>
+          <Box3>
+            <Box>
+              <img src={insta} alt="insta" style={{ width: "24px" }} />
+            </Box>
+            <Box>
+              <img src={twet} alt="twet" style={{ width: "24px" }} />
+            </Box>
+            <Box>
+              <img src={you} alt="you" style={{ width: "24px" }} />
+            </Box>
+          </Box3>
+          <Box4>
+            <Typography>Project Teho © 2025. All Rights Reserved</Typography>
+          </Box4>
+        </>
+      )}
+      {isDesktop && (
+        <DeskBox>
+          <Box>
+            <Box1>
+              <img src={logoIcon} alt="logo" />
+              <Box>
+                <MailOutlineRoundedIcon />
+                <Typography>partner@projectteho.com</Typography>
+              </Box>
+              <Box>
+                <img src={location} alt="logoww" />
+                <Typography>
+                  16, Bhuvanappa layout, Tavarekere Main rd, Bengaluru,
+                  Karnataka 560029
+                </Typography>
+              </Box>
+              <Box>
+                <img src={call} alt="logo" />
+                <Typography>8088221920</Typography>
+              </Box>
+            </Box1>
+            <Box2>
+              <Box>
+                <Typography style={{ color: "#f8990b", fontWeight: "bold" }}>
+                  Home
+                </Typography>
+                {itemForHome?.map((data) => (
+                  <Typography>{data}</Typography>
+                ))}
+              </Box>
+              <Box>
+                <Typography style={{ color: "#1cb1d9", fontWeight: "bold" }}>
+                  Products
+                </Typography>
+                {itemForProducts?.map((data) => (
+                  <Typography>{data}</Typography>
+                ))}
+              </Box>
+            </Box2>
+          </Box>
+          <Box>
+            <Box4>
+              <Typography>Project Teho © 2025. All Rights Reserved</Typography>
+            </Box4>
+            <Box3>
+              <Box>
+                <img src={insta} alt="insta" style={{ width: "24px" }} />
+              </Box>
+              <Box>
+                <img src={twet} alt="twet" style={{ width: "24px" }} />
+              </Box>
+              <Box>
+                <img src={you} alt="you" style={{ width: "24px" }} />
+              </Box>
+            </Box3>
+          </Box>
+        </DeskBox>
+      )}
     </MainBox>
   );
 };

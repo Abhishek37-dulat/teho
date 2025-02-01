@@ -194,6 +194,12 @@ const DetailsBox3 = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("s8")]: {
     padding: "0px 200px",
   },
+  [theme.breakpoints.up("lmd")]: {
+    padding: "0px 300px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    padding: "0px 400px",
+  },
   "&>div": {
     display: "flex",
     justifyContent: "space-between",
@@ -237,6 +243,14 @@ const DetailsBox4 = styled(Box)(({ theme }) => ({
     },
     [theme.breakpoints.up("s8")]: {
       width: "50%",
+      padding: "10px 50px",
+    },
+    [theme.breakpoints.up("lmd")]: {
+      width: "40%",
+      padding: "10px 50px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "30%",
       padding: "10px 50px",
     },
     "&>p": {

@@ -8,7 +8,7 @@ import TournamentsBox from "../components/TournamentsBox";
 
 const MainBox = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
-  overflow: "scroll",
+  // overflow: "scroll",
 }));
 
 const Box1 = styled(Box)(({ theme }) => ({
@@ -22,7 +22,7 @@ const Box1 = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ImageBackground = styled("img")({
+const ImageBackground = styled("img")(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -31,13 +31,16 @@ const ImageBackground = styled("img")({
   objectFit: "cover",
   zIndex: 0,
   opacity: "20%",
-});
+  [theme.breakpoints.up("s8")]: {
+    display: "none",
+  },
+}));
 const Box2 = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
   position: "relative",
   // marginTop: "-100vh",
   zIndex: "10",
-  overflow: "scroll",
+  // overflow: "scroll",
   [theme.breakpoints.up("s4")]: {
     marginTop: "-150vh",
   },
@@ -74,7 +77,11 @@ const Tournaments = () => {
   return (
     <div>
       <MainBox>
-        <DrawerBox toggleDrawer={toggleDrawer} state={state} />
+        <DrawerBox
+          isDesktop={isDesktop}
+          toggleDrawer={toggleDrawer}
+          state={state}
+        />
         <Box1>
           <ImageBackground src={Box2Image} alt="Background Image" />
           <Overlay />
@@ -83,7 +90,7 @@ const Tournaments = () => {
           <TopBar toggleDrawer={toggleDrawer} />
           <TournamentsBox isDesktop={isDesktop} />
         </Box2>
-        <FooterBox />
+        <FooterBox isDesktop={isDesktop} />
       </MainBox>
     </div>
   );

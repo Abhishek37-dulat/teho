@@ -36,6 +36,7 @@ const VideoBackground = styled("video")({
 const Home = () => {
   const [state, setState] = useState({
     right: false,
+    bottom: false,
   });
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
@@ -74,7 +75,11 @@ const Home = () => {
 
   return (
     <MainBox>
-      <DrawerBox toggleDrawer={toggleDrawer} state={state} />
+      <DrawerBox
+        isDesktop={isDesktop}
+        toggleDrawer={toggleDrawer}
+        state={state}
+      />
       <Box1>
         <VideoBackground ref={videoRef} autoPlay loop muted preload="auto">
           <source src={homevideo} type="video/mp4" />
@@ -86,7 +91,7 @@ const Home = () => {
       <WhyBox isDesktop={isDesktop} />
       <OurProduct isDesktop={isDesktop} />
       <ContactUsForm />
-      <FooterBox />
+      <FooterBox isDesktop={isDesktop} />
       {/* <Box3></Box3> */}
     </MainBox>
   );

@@ -8,7 +8,7 @@ import CentresBox from "../components/CentresBox";
 
 const MainBox = styled(Box)(({ theme }) => ({
   border: "1px solid black",
-  overflow: "scroll",
+  // overflow: "scroll",
 }));
 
 const Box1 = styled(Box)(({ theme }) => ({
@@ -76,7 +76,11 @@ const Centres = () => {
   return (
     <div>
       <MainBox>
-        <DrawerBox toggleDrawer={toggleDrawer} state={state} />
+        <DrawerBox
+          isDesktop={isDesktop}
+          toggleDrawer={toggleDrawer}
+          state={state}
+        />
         <Box1>
           <ImageBackground src={Box2Image} alt="Background Image" />
           <Overlay />
@@ -85,7 +89,7 @@ const Centres = () => {
           <TopBar toggleDrawer={toggleDrawer} />
           <CentresBox isDesktop={isDesktop} />
         </Box2>
-        <FooterBox />
+        <FooterBox isDesktop={isDesktop} />
       </MainBox>
     </div>
   );

@@ -29,6 +29,9 @@ const Box2 = styled(Box)(({ theme }) => ({
   justifyContent: "flex-start",
   alignItems: "flex-start",
   paddingTop: "40px",
+  [theme.breakpoints.up("s8")]: {
+    width: "100%",
+  },
 }));
 
 const B2Item1 = styled(Box)(({ theme }) => ({
@@ -128,7 +131,7 @@ const SVGImage = styled("img")(({ theme }) => ({
   marginRight: "10px",
 }));
 
-export default function DrawerBox({ toggleDrawer, state }) {
+export default function DrawerBox({ isDesktop, toggleDrawer, state }) {
   const [downUp, setDownUp] = useState(false);
   const navigate = useNavigate();
 
@@ -153,7 +156,7 @@ export default function DrawerBox({ toggleDrawer, state }) {
   return (
     <div>
       <SwipeableDrawer
-        anchor="right"
+        anchor={isDesktop ? "bottom" : "right"}
         open={state.right}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
