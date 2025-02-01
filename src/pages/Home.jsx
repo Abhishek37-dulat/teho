@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import TopBar from "../components/TopBar";
 import homevideo from "../assets/01c9bf78074795a084ac805e762de43795f6cad3.mp4";
@@ -10,6 +10,7 @@ import DrawerBox from "../components/DrawerBox";
 import FooterBox from "../components/FooterBox";
 import { useRef } from "react";
 import { useEffect } from "react";
+import SplitAtomicBox from "../components/SplitAtomicBox";
 
 const MainBox = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
@@ -38,6 +39,8 @@ const Home = () => {
   });
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -79,7 +82,7 @@ const Home = () => {
 
         <TopBar toggleDrawer={toggleDrawer} />
       </Box1>
-      <AtomicBox />
+      {isDesktop ? <SplitAtomicBox /> : <AtomicBox />}
       <WhyBox />
       <OurProduct />
       <ContactUsForm />

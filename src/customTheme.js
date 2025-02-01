@@ -10,7 +10,7 @@ const customTheme = createTheme({
       ssm: 500,
       sm: 600,
       msm: 700,
-      lsm: 800,
+      s8: 800,
       md: 900,
       lmd: 1024,
       slg: 1100,

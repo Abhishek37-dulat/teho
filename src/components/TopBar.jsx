@@ -6,22 +6,31 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import logoIcon from "../assets/teho-white 1.png";
 import { useNavigate } from "react-router-dom";
+import { styled } from "@mui/material";
+
+const MainBox = styled(Box)(({ theme }) => ({
+  flexGrow: 1,
+  margin: 2,
+  overflow: "hidden",
+  zIndex: 10,
+  width: "100%",
+  [theme.breakpoints.up("s8")]: {
+    width: "80%",
+    marginLeft: "10%",
+  },
+}));
 
 export default function ButtonAppBar({ toggleDrawer }) {
   const navigate = useNavigate();
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        margin: 2,
-        overflow: "hidden",
-        zIndex: 10,
-      }}
-    >
+    <MainBox>
       <AppBar
         position="static"
-        sx={{ borderRadius: 2 }}
-        style={{ backgroundColor: "#1A1A1A", zIndex: 2 }}
+        sx={{
+          borderRadius: 2,
+          backgroundColor: "#1A1A1A",
+          zIndex: 2,
+        }}
       >
         <Toolbar>
           <Typography
@@ -49,6 +58,6 @@ export default function ButtonAppBar({ toggleDrawer }) {
           </Box>
         </Toolbar>
       </AppBar>
-    </Box>
+    </MainBox>
   );
 }
