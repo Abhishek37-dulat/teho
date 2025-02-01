@@ -22,7 +22,7 @@ const Box1 = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ImageBackground = styled("img")({
+const ImageBackground = styled("img")(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -31,7 +31,10 @@ const ImageBackground = styled("img")({
   objectFit: "cover",
   zIndex: 0,
   opacity: "20%",
-});
+  [theme.breakpoints.up("s8")]: {
+    display: "none",
+  },
+}));
 const Box2 = styled(Box)(({ theme }) => ({
   border: "1px solid black",
   position: "relative",

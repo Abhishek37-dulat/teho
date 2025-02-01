@@ -88,7 +88,11 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
   marginTop: "40px",
   marginLeft: "-10px",
   marginRight: "-10px",
-
+  [theme.breakpoints.up("s8")]: {
+    width: "80%",
+    marginLeft: "10%",
+    marginRight: "10%",
+  },
   "&>div:nth-of-type(1)": {
     display: "flex",
     justifyContent: "center",
@@ -156,6 +160,9 @@ const DetailsBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     padding: "0px 100px",
   },
+  [theme.breakpoints.up("s8")]: {
+    padding: "0px 200px",
+  },
   "&>p": {
     color: "#fff",
     textAlign: "center",
@@ -184,6 +191,9 @@ const DetailsBox3 = styled(Box)(({ theme }) => ({
   marginTop: "20px",
   [theme.breakpoints.up("sm")]: {
     padding: "0px 100px",
+  },
+  [theme.breakpoints.up("s8")]: {
+    padding: "0px 200px",
   },
   "&>div": {
     display: "flex",

@@ -32,6 +32,9 @@ const MainBox = styled(Box)(({ theme }) => ({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
+  [theme.breakpoints.up("s8")]: {
+    justifyContent: "center",
+  },
 }));
 const IconBoxes = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
@@ -39,6 +42,21 @@ const IconBoxes = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  [theme.breakpoints.up("s8")]: {
+    width: "190px",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backdropFilter: "blur(10px)",
+    padding: "10px 20px 10px 20px",
+    borderRadius: "10px",
+    marginLeft: "10px",
+    "&>div": {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  },
 }));
 const IconBox1 = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
@@ -50,6 +68,14 @@ const IconBox1 = styled(Box)(({ theme }) => ({
   borderRadius: "100%",
   transition: "background-color 0.3s ease-in-out",
   boxShadow: "0px 0px 3px rgba(255,255,255,0.5)",
+  [theme.breakpoints.up("s8")]: {
+    width: "40px",
+    height: "40px",
+    marginRight: "20px",
+    "&>img": {
+      width: "20px",
+    },
+  },
 }));
 
 const Box1Text = styled(Typography)(({ theme }) => ({
@@ -65,6 +91,11 @@ const ViewAllDetails = styled(Box)(({ theme }) => ({
   marginTop: "40px",
   marginLeft: "-10px",
   marginRight: "-10px",
+  [theme.breakpoints.up("s8")]: {
+    width: "80%",
+    marginLeft: "10%",
+    marginRight: "10%",
+  },
   "&>div:nth-of-type(1)": {
     display: "flex",
     justifyContent: "center",
@@ -160,6 +191,9 @@ const DetailsBox3 = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     padding: "0px 100px",
   },
+  [theme.breakpoints.up("s8")]: {
+    padding: "0px 200px",
+  },
   "&>div": {
     display: "flex",
     justifyContent: "space-between",
@@ -201,6 +235,10 @@ const DetailsBox4 = styled(Box)(({ theme }) => ({
       width: "70%",
       padding: "10px 100px",
     },
+    [theme.breakpoints.up("s8")]: {
+      width: "50%",
+      padding: "10px 50px",
+    },
     "&>p": {
       color: "#fff",
     },
@@ -212,7 +250,7 @@ const DetailsBox4 = styled(Box)(({ theme }) => ({
     boxShadow: "0px 0px 4px rgba(0,0,0,0.4)",
   },
 }));
-const TournamentsBox = () => {
+const TournamentsBox = ({ isDesktop }) => {
   const [color, setColor] = useState({ color: "#009f83", itemNumber: 2 });
   const [imageIndex, setImageIndex] = useState(0);
   const navigate = useNavigate();
@@ -260,44 +298,97 @@ const TournamentsBox = () => {
   };
   return (
     <BoxAtom>
-      <MainBox>
-        <IconBoxes>
-          <IconBox1
-            style={{
-              backgroundColor: color.itemNumber === 0 ? color.color : "",
-            }}
-            onClick={() => handleEventChange("#A60019", 0)}
-          >
-            {/* <HomeRoundedIcon sx={{ color: "white" }} /> */}
-            <img src={home} alt="images" />
-          </IconBox1>
-          <Box1Text>Centres</Box1Text>
-        </IconBoxes>
-        <IconBoxes>
-          <IconBox1
-            style={{
-              backgroundColor: color.itemNumber === 1 ? color.color : "",
-            }}
-            onClick={() => handleEventChange("#0074c8", 1)}
-          >
-            {/* <BookOnlineIcon sx={{ color: "white" }} /> */}
-            <img src={ti} alt="images" />
-          </IconBox1>
-          <Box1Text>Events</Box1Text>
-        </IconBoxes>
-        <IconBoxes>
-          <IconBox1
-            style={{
-              backgroundColor: color.itemNumber === 2 ? color.color : "",
-            }}
-            onClick={() => handleEventChange("#009f83", 2)}
-          >
-            <img src={tou} alt="images" />
-            {/* <SportsEsportsIcon sx={{ color: "white" }} /> */}
-          </IconBox1>
-          <Box1Text>Tournaments</Box1Text>
-        </IconBoxes>
-      </MainBox>
+      {!isDesktop && (
+        <MainBox>
+          <IconBoxes>
+            <IconBox1
+              style={{
+                backgroundColor: color.itemNumber === 0 ? color.color : "",
+              }}
+              onClick={() => handleEventChange("#A60019", 0)}
+            >
+              {/* <HomeRoundedIcon sx={{ color: "white" }} /> */}
+              <img src={home} alt="images" />
+            </IconBox1>
+            <Box1Text>Centres</Box1Text>
+          </IconBoxes>
+          <IconBoxes>
+            <IconBox1
+              style={{
+                backgroundColor: color.itemNumber === 1 ? color.color : "",
+              }}
+              onClick={() => handleEventChange("#0074c8", 1)}
+            >
+              {/* <BookOnlineIcon sx={{ color: "white" }} /> */}
+              <img src={ti} alt="images" />
+            </IconBox1>
+            <Box1Text>Events</Box1Text>
+          </IconBoxes>
+          <IconBoxes>
+            <IconBox1
+              style={{
+                backgroundColor: color.itemNumber === 2 ? color.color : "",
+              }}
+              onClick={() => handleEventChange("#009f83", 2)}
+            >
+              <img src={tou} alt="images" />
+              {/* <SportsEsportsIcon sx={{ color: "white" }} /> */}
+            </IconBox1>
+            <Box1Text>Tournaments</Box1Text>
+          </IconBoxes>
+        </MainBox>
+      )}
+
+      {isDesktop && (
+        <MainBox>
+          <IconBoxes>
+            <Box>
+              <IconBox1
+                style={{
+                  backgroundColor: "#A60019",
+                }}
+                onClick={() => navigate("/centres")}
+              >
+                {/* <HomeRoundedIcon sx={{ color: "white" }} /> */}
+                <img src={home} alt="images" />
+              </IconBox1>
+              <Box1Text>Centres</Box1Text>
+            </Box>
+            <img src={tor} alt="images" />
+          </IconBoxes>
+          <IconBoxes>
+            <Box>
+              <IconBox1
+                style={{
+                  backgroundColor: "#0074c8",
+                }}
+                onClick={() => navigate("/events")}
+              >
+                {/* <BookOnlineIcon sx={{ color: "white" }} /> */}
+                <img src={ti} alt="images" />
+              </IconBox1>
+              <Box1Text>Events</Box1Text>
+            </Box>
+            <img src={tor} alt="images" />
+          </IconBoxes>
+          <IconBoxes>
+            <Box>
+              <IconBox1
+                style={{
+                  backgroundColor: "#009f83",
+                }}
+                onClick={() => navigate("/tournaments")}
+              >
+                <img src={tou} alt="images" />
+                {/* <SportsEsportsIcon sx={{ color: "white" }} /> */}
+              </IconBox1>
+              <Box1Text>Tournaments</Box1Text>
+            </Box>
+            <img src={tor} alt="images" />
+          </IconBoxes>
+        </MainBox>
+      )}
+
       <ViewAllDetails>
         <Box onClick={() => handleChange(-1)}>
           <ArrowBackRoundedIcon />
