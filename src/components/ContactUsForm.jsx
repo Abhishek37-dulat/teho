@@ -3,6 +3,7 @@ import React from "react";
 import Box2Image from "../assets/fe2301a10103d27433cbf0b8c65c088c.png";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { contactUsPost } from "../api/ContactUs";
 
 const ContactUsBox = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -160,11 +161,12 @@ const ContactUsForm = () => {
 
     return formValid;
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
+    const req = await contactUsPost({ name, email, message });
     toast.success("Thank's We Will Contact You", 3000);
 
     setName("");
