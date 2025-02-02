@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { IconButton, styled, Typography } from "@mui/material";
+import { Drawer, IconButton, styled, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
@@ -168,6 +168,18 @@ export default function DrawerBox({ isDesktop, toggleDrawer, state }) {
       navigate("/tournaments");
     }
     if (itemNumber === -1) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      toggleDrawer(isDesktop ? "bottom" : "right", false);
+      navigate("/");
+    }
+    if (itemNumber === 4) {
+      window.scrollTo({ top: 1000, behavior: "smooth" });
+      toggleDrawer(isDesktop ? "bottom" : "right", false);
+      navigate("/");
+    }
+    if (itemNumber === 5) {
+      window.scrollTo({ top: 700, behavior: "smooth" });
+      toggleDrawer(isDesktop ? "bottom" : "right", false);
       navigate("/");
     }
   };
@@ -179,13 +191,13 @@ export default function DrawerBox({ isDesktop, toggleDrawer, state }) {
     <div>
       <SwipeableDrawer
         anchor={isDesktop ? "bottom" : "right"}
-        open={state.right}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
+        open={state[isDesktop ? "bottom" : "right"]}
+        onClose={toggleDrawer(isDesktop ? "bottom" : "right", false)}
+        onOpen={toggleDrawer(isDesktop ? "bottom" : "right", true)}
       >
         <Box1>
           <IconButton
-            onClick={toggleDrawer(false)}
+            onClick={toggleDrawer(isDesktop ? "bottom" : "right", false)}
             size="small"
             sx={{ padding: "5px", fontSize: "8px", borderRadius: "10px" }}
           >
@@ -228,10 +240,10 @@ export default function DrawerBox({ isDesktop, toggleDrawer, state }) {
               </SubInnerBox>
             </InnerBox>
           </B2Item2>
-          <B2Item1>
+          <B2Item1 onClick={() => handleExplore(4)}>
             <Typography>Products</Typography>
           </B2Item1>
-          <B2Item1>
+          <B2Item1 onClick={() => handleExplore(5)}>
             <Typography>About Us</Typography>
           </B2Item1>
         </Box2>

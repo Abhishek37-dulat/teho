@@ -21,7 +21,7 @@ const MainBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function ButtonAppBar({ toggleDrawer }) {
+export default function ButtonAppBar({ isDesktop, toggleDrawer }) {
   const navigate = useNavigate();
   return (
     <MainBox>
@@ -60,7 +60,7 @@ export default function ButtonAppBar({ toggleDrawer }) {
               boxShadow: "0px 0px rgba(0,0,0,0.5)",
               cursor: "pointer",
             }}
-            onClick={toggleDrawer(true)}
+            onClick={toggleDrawer(isDesktop ? "bottom" : "right", true)}
           >
             <img src={lo} alt="logo" style={{ width: "24px" }} />
           </Box>

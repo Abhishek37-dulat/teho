@@ -34,16 +34,18 @@ const VideoBackground = styled("video")({
 });
 
 const Home = () => {
-  const [state, setState] = useState({
-    right: false,
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
     bottom: false,
+    right: false,
   });
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
 
-  const toggleDrawer = (open) => (event) => {
+  const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
       event.type === "keydown" &&
@@ -51,7 +53,8 @@ const Home = () => {
     ) {
       return;
     }
-    setState({ ...state, right: open });
+
+    setState({ ...state, [anchor]: open });
   };
 
   const handleScroll = () => {
@@ -85,7 +88,7 @@ const Home = () => {
           <source src={homevideo} type="video/mp4" />
         </VideoBackground>
 
-        <TopBar toggleDrawer={toggleDrawer} />
+        <TopBar isDesktop={isDesktop} toggleDrawer={toggleDrawer} />
       </Box1>
       {isDesktop ? <SplitAtomicBox /> : <AtomicBox />}
       <WhyBox isDesktop={isDesktop} />

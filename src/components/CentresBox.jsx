@@ -281,6 +281,8 @@ const CentresBox = ({ isDesktop }) => {
       location:
         "PLaY, Sy No 75, Kasavanahalli, Central Jail Road Off Sarjapur Road, Bangalore 560035",
       website: "www.playarena.in",
+      mapLocation:
+        "https://www.google.com/maps/place/Torq03/@12.963384,77.7031765,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae1461ccf19f97:0x603b5ccd88b0a952!8m2!3d12.963384!4d77.7031765!16s%2Fg%2F11cly730zm?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D",
     },
     {
       title: "TORQ03",
@@ -291,6 +293,8 @@ const CentresBox = ({ isDesktop }) => {
       location:
         "PLaY, Sy No 75, Kasavanahalli, Central Jail Road Off Sarjapur Road, Bangalore 560035",
       website: "www.playarena.in",
+      mapLocation:
+        "https://www.google.com/maps/place/Torq03/@12.963384,77.7031765,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae1461ccf19f97:0x603b5ccd88b0a952!8m2!3d12.963384!4d77.7031765!16s%2Fg%2F11cly730zm?entry=ttu&g_ep=EgoyMDI1MDEyOS4xIKXMDSoASAFQAw%3D%3D",
     },
   ];
   const handleEventChange = (color, itemNumber) => {
@@ -308,6 +312,9 @@ const CentresBox = ({ isDesktop }) => {
   const handleChange = (n) => {
     // Use modulo logic to make sure the index wraps around
     setImageIndex((prevIndex) => (prevIndex + n + lists.length) % lists.length);
+  };
+  const handleMap = (location) => {
+    window.open(location, "_blank");
   };
   return (
     <BoxAtom>
@@ -432,7 +439,11 @@ const CentresBox = ({ isDesktop }) => {
         </Box>
       </DetailsBox3>
       <DetailsBox4>
-        <img src={rec} alt="images" />
+        <img
+          src={rec}
+          onClick={() => handleMap(lists[imageIndex].mapLocation)}
+          alt="images"
+        />
       </DetailsBox4>
     </BoxAtom>
   );

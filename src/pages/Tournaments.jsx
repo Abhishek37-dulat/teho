@@ -57,13 +57,16 @@ const Overlay = styled(Box)({
 });
 
 const Tournaments = () => {
-  const [state, setState] = useState({
-    right: false,
-  });
+  const [state, setState] = React.useState({
+      top: false,
+      left: false,
+      bottom: false,
+      right: false,
+    });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
 
-  const toggleDrawer = (open) => (event) => {
+  const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
       event.type === "keydown" &&
@@ -71,7 +74,8 @@ const Tournaments = () => {
     ) {
       return;
     }
-    setState({ ...state, right: open });
+
+    setState({ ...state, [anchor]: open });
   };
 
   return (
@@ -87,7 +91,7 @@ const Tournaments = () => {
           <Overlay />
         </Box1>
         <Box2>
-          <TopBar toggleDrawer={toggleDrawer} />
+          <TopBar isDesktop={isDesktop} toggleDrawer={toggleDrawer} />
           <TournamentsBox isDesktop={isDesktop} />
         </Box2>
         <FooterBox isDesktop={isDesktop} />

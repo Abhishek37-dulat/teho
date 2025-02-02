@@ -57,12 +57,15 @@ const Overlay = styled(Box)({
 });
 
 const Centres = () => {
-  const [state, setState] = useState({
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
     right: false,
   });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
-  const toggleDrawer = (open) => (event) => {
+  const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
       event.type === "keydown" &&
@@ -70,7 +73,8 @@ const Centres = () => {
     ) {
       return;
     }
-    setState({ ...state, right: open });
+
+    setState({ ...state, [anchor]: open });
   };
 
   return (
@@ -86,7 +90,7 @@ const Centres = () => {
           <Overlay />
         </Box1>
         <Box2>
-          <TopBar toggleDrawer={toggleDrawer} />
+          <TopBar isDesktop={isDesktop} toggleDrawer={toggleDrawer} />
           <CentresBox isDesktop={isDesktop} />
         </Box2>
         <FooterBox isDesktop={isDesktop} />
