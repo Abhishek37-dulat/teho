@@ -17,6 +17,10 @@ const Box1 = styled(Box)(({ theme }) => ({
   // minHeight: "180vh",
   //   overflow: "hidden",
   backgroundColor: "transparent",
+  // position: "relative",
+  //   border: "1px solid black",
+  minHeight: "200vh",
+  // overflow: "hidden",
   [theme.breakpoints.up("s4")]: {
     minHeight: "200vh",
   },
@@ -41,6 +45,7 @@ const Box2 = styled(Box)(({ theme }) => ({
 
   zIndex: "10",
   // overflow: "scroll",
+  marginTop: "-200vh",
   [theme.breakpoints.up("s4")]: {
     marginTop: "-200vh",
   },

@@ -22,6 +22,7 @@ const BoxAtom = styled(Box)(({ theme }) => ({
   borderRadius: "10px",
   marginLeft: "20px",
   marginRight: "20px",
+  
   // boxShadow:"0px 0px -5p rgba(255, 255, 255, 0.5)"
 }));
 const MainBox = styled(Box)(({ theme }) => ({
@@ -29,6 +30,7 @@ const MainBox = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+ 
   [theme.breakpoints.up("s8")]: {
     justifyContent: "center",
   },

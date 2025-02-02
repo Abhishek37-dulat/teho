@@ -16,6 +16,7 @@ const Box1 = styled(Box)(({ theme }) => ({
   //   border: "1px solid black",
 
   //   overflow: "hidden",
+  minHeight: "150vh",
   backgroundColor: "transparent",
   [theme.breakpoints.up("s4")]: {
     minHeight: "150vh",
@@ -41,6 +42,7 @@ const Box2 = styled(Box)(({ theme }) => ({
   // marginTop: "-100vh",
   zIndex: "10",
   // overflow: "scroll",
+  marginTop: "-150vh",
   [theme.breakpoints.up("s4")]: {
     marginTop: "-150vh",
   },
@@ -58,11 +60,11 @@ const Overlay = styled(Box)({
 
 const Events = () => {
   const [state, setState] = React.useState({
-      top: false,
-      left: false,
-      bottom: false,
-      right: false,
-    });
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("s8"));
 
