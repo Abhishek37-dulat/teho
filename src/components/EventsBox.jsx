@@ -13,6 +13,7 @@ import home from "../assets/akar-icons_desktop-device.svg";
 import ti from "../assets/tickets--hobby-ticket-event-entertainment-stub-theater-entertainment-culture.png";
 import tou from "../assets/esports--entertainment-gaming-esports.svg";
 import tor from "../assets/Union (2).svg";
+import des from "../assets/dss.svg";
 import { useNavigate } from "react-router-dom";
 
 const BoxAtom = styled(Box)(({ theme }) => ({
@@ -316,7 +317,9 @@ const EventsBox = ({ isDesktop }) => {
       logo: l1,
       location:
         "PLaY, Sy No 75, Kasavanahalli, Central Jail Road Off Sarjapur Road, Bangalore 560035",
-      website: "www.playarena.in",
+      website: "www.playarena.in/events",
+      date: "30 Jan 2025 - 11:00 AM",
+      call: "8088221920",
     },
     {
       title: "NISSAN EVENT",
@@ -324,7 +327,9 @@ const EventsBox = ({ isDesktop }) => {
       logo: l2,
       location:
         "PLaY, Sy No 75, Kasavanahalli, Central Jail Road Off Sarjapur Road, Bangalore 560035",
-      website: "www.playarena.in",
+      website: "www.playarena.in/events",
+      date: "30 Jan 2025 - 11:00 AM",
+      call: "8088221920",
     },
   ];
   const handleEventChange = (color, itemNumber) => {
@@ -462,10 +467,24 @@ const EventsBox = ({ isDesktop }) => {
         </Box>
         <Box>
           <Box>
+            <img src={des} alt="images" style={{ width: "15px" }} />
+          </Box>
+          <Typography>Date & Time:</Typography>
+          <Typography> {lists[imageIndex].date}</Typography>
+        </Box>
+        <Box>
+          <Box>
+            <img src={tete} alt="images" />
+          </Box>
+          <Typography>Register On:</Typography>
+          <Typography> {lists[imageIndex].website}</Typography>
+        </Box>
+        <Box>
+          <Box>
             <img src={web} alt="images" />
           </Box>
-          <Typography>Website:</Typography>
-          <Typography> {lists[imageIndex].website}</Typography>
+          <Typography>For Enquiry:</Typography>
+          <Typography> {lists[imageIndex].call}</Typography>
         </Box>
       </DetailsBox3>
       <DetailsBox4>
